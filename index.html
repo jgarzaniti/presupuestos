@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Propuesta KOALA ETL</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    body { margin: 0; font-family: 'Open Sans', sans-serif; color: #333; }
+    .header { display: flex; justify-content: space-between; align-items: center; background-color: #cd5e66; padding: 20px; }
+    .company {display: flex; align-items: center;}
+    .company-logo { max-height: 60px; margin-right: 20px; }
+    .company-info { font-size: 14px; color: #fff; }
+    .company-info strong { display: block; font-family: 'Montserrat', sans-serif; font-size: 20px; color: #fff; }
+    .company-info em { font-size: 12px; font-style: italic; }
+    .personal { text-align: right; }
+    .personal h1 { margin: 0; font-family: 'Montserrat', sans-serif; font-size: 18px; color: #fff; }
+    .personal p, .contact span, .contact a { margin: 4px 0; font-size: 14px; color: #fff; text-decoration: none; }
+    section { padding: 20px; }
+    h2 { font-family: 'Montserrat', sans-serif; color: #C5868A; margin-bottom: 10px; }
+    ol { margin-left: 20px; }
+    table { border: 1px solid #ccc; border-collapse: collapse; width: 100%; font-family: 'Open Sans', sans-serif; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background-color: #f7f7f7; }
+    .note { font-size: 12px; font-style: italic; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="company">
+      <a href="https://www.fyrao.com" target="_blank" rel="noopener noreferrer">
+        <img src="img/logoN-fyrao-blanco.png" alt="FYRAO Logo" class="company-logo" />
+      </a>
+      <div class="company-info">
+        <strong>FYRAO</strong>
+        <em>Innovation in Four Dimensions</em><br/>
+        <span>C/ Caudete, 2 · 02640 Almansa (España)</span>
+      </div>
+    </div>
+    <div class="personal">
+      <h1>Ing. Jorge E. Garzaniti</h1>
+      <p>Functional Analyst / Data & Automation Solutions Architect</p>
+      <div class="contact">
+        <span>Email: <a href="mailto:jgarzaniti@fyrao.com">jgarzaniti@fyrao.com</a></span><br/>
+        <span>Phone: +34 607 416 873 / Whatsapp: +54 221 477 3490</span>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <p><strong>Almansa, 8 de Mayo de 2025</strong></p>
+    <h2>Propuesta: Proyecto KOALA</h2>
+
+    <h2>Evaluación Técnica y Funcional</h2>
+    <ol>
+      <li><strong>Servidor físico o virtualizado (a cargo del cliente)</strong><br/>
+        Ambas opciones son viables. Puede utilizarse un servidor físico o virtualizado, siempre que cuente con los recursos necesarios para alojar SQL Server Express y Power BI de forma conjunta.
+      </li>
+      <li><strong>Uso de Microsoft SQL Server Express – fase inicial (a cargo del cliente)</strong><br/>
+        Es una alternativa válida para reducir los costos iniciales. Se debe considerar que tiene limitaciones de almacenamiento (10 GB por base), CPU y memoria. Esta elección es adecuada mientras se trabaje con datos de un único productor.
+      </li>
+      <li><strong>SQL y Power BI en el mismo equipo – monopuesto (a cargo del cliente)</strong><br/>
+        Funciona correctamente en un entorno inicial. Se sugiere optimizar los recursos del equipo ya que se compartirán entre ambas aplicaciones. El acceso remoto deberá configurarse con seguridad adecuada.
+      </li>
+      <li><strong>Fase 1 del Proyecto – Implementación ETL (a cargo de Fyrao)</strong><br/>
+        Se desarrollarán scripts en Python para la extracción, transformación y carga de datos del CRM Botmaker al nuevo diseño de tablas, según los distintos endpoints solicitados por el cliente. El proceso se automatizará cada 15 días. Esta etapa cubre a un único productor como muestra de validación.
+      </li>
+      <li><strong>Visualización con Power BI (a cargo de Koala)</strong><br/>
+        Los datos migrados podrán ser visualizados con dashboards desarrollados por el propio equipo de Koala utilizando Power BI instalado en el servidor.
+      </li>
+      <li><strong>Fase 2 propuesta – Reemplazo del CRM Botmaker (a cargo de Fyrao)</strong><br/>
+        Proponemos como Fase 2 un CRM propio, integrado a la base de datos ya migrada, lo que permitirá un mayor control de los datos, reportes más flexibles y continuidad histórica sin restricciones de Botmaker.
+      </li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Fase 1 del Proyecto – Diagrama</h2>
+    <img src="img/gantt.png" alt="Diagrama de Gantt: Fase 1 ETL" style="width:100%; max-width:800px;"/>
+  </section>
+
+  <section>
+    <h2>Propuesta de Costos – Fase 1: Implementación del Proceso ETL</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Tarea</th>
+          <th>Horas</th>
+          <th>Valor Hora</th>
+          <th>Costo Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Análisis y documentación de estructura Botmaker (Diseño de Tablas)</td>
+          <td>10</td>
+          <td>U$S 25</td>
+          <td>U$S 250</td>
+        </tr>
+        <tr>
+          <td>Desarrollo de scripts ETL en Python</td>
+          <td>12</td>
+          <td>U$S 25</td>
+          <td>U$S 300</td>
+        </tr>
+        <tr>
+          <td>Configuración de ejecución automática (cron)</td>
+          <td>6</td>
+          <td>U$S 25</td>
+          <td>U$S 150</td>
+        </tr>
+        <tr>
+          <td>Pruebas de validación de datos</td>
+          <td>4</td>
+          <td>U$S 25</td>
+          <td>U$S 100</td>
+        </tr>
+        <tr>
+          <td>Documentación técnica y entrega</td>
+          <td>3</td>
+          <td>U$S 25</td>
+          <td>U$S 75</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="note">
+      Total sin IRPF: U$S 875<br/>
+      Retención IRPF (24 %): U$S 210<br/>
+      Total facturable: U$S 1 085<br/><br/>
+      “Operación exenta de IVA por prestación de servicios a empresa residente fuera de la UE. Aplicación de retención IRPF conforme al artículo 95. Uno. 2º de la Ley del IRPF.”
+    </p>
+  </section>
+</body>
+</html>
